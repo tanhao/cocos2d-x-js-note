@@ -1,0 +1,8 @@
+LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := libmp3_static
+LOCAL_MODULE_FILENAME := mp3
+LOCAL_SRC_FILES := $(TARGET_ARCH_ABI)/libmp3lame.a
+LOCAL_EXPORT_C_INCLUDES := $(LOCAL_PATH)/../../include
+include $(PREBUILT_STATIC_LIBRARY)
