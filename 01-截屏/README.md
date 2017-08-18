@@ -9,10 +9,5 @@
 
 向jsb注册方法
 ---
-在`AppDelegate.cpp` 的 `bool AppDelegate::applicationDidFinishLaunching()` 方法里添加`sc->addRegisterCallback(register_jsb_captureScreen);` 代码如下：
-
-`
-bool AppDelegate::applicationDidFinishLaunching(){
-    		sc->addRegisterCallback(register_jsb_captureScreen);
-}
-` 
+在 **AppDelegate.cpp** 的 **bool AppDelegate::applicationDidFinishLaunching()** 方法里添加
+	`sc->addRegisterCallback(register_jsb_captureScreen);`
