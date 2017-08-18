@@ -21,9 +21,8 @@
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                          ../../Classes/AppDelegate.cpp \
-                         ../../Classes/jsb_utils_captureScreen.cpp
-
-
+                         ../../Classes/jsb_utils_captureScreen.cpp 
+                         
 打包IOS时
 ---
     在项目中引入**jsb_utils_captureScreen.h** 与 **jsb_utils_captureScreen.cpp**即可
