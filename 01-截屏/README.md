@@ -17,8 +17,20 @@
 
 打包Android时
 ---
-在项目 **frameworks\runtime-src\proj.android\jni\Android.mk** 文件的 **LOCAL_SRC_FILES** 部引入 **jsb_utils_captureScreen.cpp*
+在项目 **frameworks\runtime-src\proj.android\jni\Android.mk** 文件的 **LOCAL_SRC_FILES** 部引入 **jsb_utils_captureScreen.cpp**
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                          ../../Classes/AppDelegate.cpp \
                          ../../Classes/jsb_utils_captureScreen.cpp
+
+
+打包IOS时
+---
+    在项目中引入**jsb_utils_captureScreen.h** 与 **jsb_utils_captureScreen.cpp**即可
+    
+js中如何调用
+---
+      jsb.captureScreen(function(success,file){
+            //success为true时,截屏成功,file为图片路径
+            cc.log(success,file);
+      },this,"test.jpg");
