@@ -4,7 +4,7 @@
 
 引入 **jsb_utils_captureScreen.h** 头文件
 ---
-在项目 **frameworks\runtime-src\Classes** 目录下的 **AppDelegate.cpp** 文件里头部引入 **jsb_utils_captureScreen.h**
+在项目 **frameworks\runtime-src\Classes\AppDelegate.cpp** 文件里头部引入 **jsb_utils_captureScreen.h**
 
       #include "jsb_utils_captureScreen.h"
 
@@ -13,3 +13,12 @@
 在 **AppDelegate.cpp** 的 **bool AppDelegate::applicationDidFinishLaunching()** 方法里添加
 
       sc->addRegisterCallback(register_jsb_captureScreen);
+
+
+打包Android时
+---
+在项目 **frameworks\runtime-src\proj.android\jni\Android.mk** 文件的 **LOCAL_SRC_FILES** 部引入 **jsb_utils_captureScreen.cpp*
+
+      LOCAL_SRC_FILES := hellojavascript/main.cpp \
+                         ../../Classes/AppDelegate.cpp \
+                         ../../Classes/jsb_utils_captureScreen.cpp
