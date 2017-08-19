@@ -15,7 +15,7 @@
 在项目
 > **frameworks\runtime-src\Classes\AppDelegate.cpp**
 
-文件里头部引入 **jsb_utils_captureScreen.h** ：
+文件里头部引入 **jsb_utils_captureScreen.h**
 
       #include "jsb_utils_captureScreen.h"
 
