@@ -1,13 +1,13 @@
 添加文件
 ---
 把文件  
-- **jsb_platformAPI.h**
-- **jsb_platformAPI.cpp**
-- **PlatformAPI.h**
-- **PlatfromAPI-android.cpp**
-- **PlatfromAPI-ios.mm**
-- **org_cocos2dx_javascript_MP3Encode.h**
-- **org_cocos2dx_javascript_MP3Encode.cpp**
+1. **jsb_platformAPI.h**
+2. **jsb_platformAPI.cpp**
+3. **PlatformAPI.h**
+4. **PlatfromAPI-android.cpp**
+5. **PlatfromAPI-ios.mm**
+6. **org_cocos2dx_javascript_MP3Encode.h**
+7. **org_cocos2dx_javascript_MP3Encode.cpp**
 
 放入项目 **frameworks\runtime-src\Classes** 目录下
 
