@@ -45,10 +45,4 @@ js中如何调用
             //success为true时,截屏成功,file为图片路径
             cc.log(success,file);
       },this,"test.jpg");
-
-
-
-
-* **jsb_platformAPI.h**
-* **jsb_platformAPI.h**
-* **jsb_platformAPI.h**
+      
