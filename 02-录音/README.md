@@ -19,8 +19,7 @@
 在项目
 > **frameworks\runtime-src\Classes\AppDelegate.cpp**
 
-文件里头部引入
-* **jsb_platformAPI.h**
+文件里头部引入 **jsb_platformAPI.h**
 
       #include "jsb_platformAPI.h"
 
