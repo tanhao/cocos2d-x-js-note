@@ -1,6 +1,7 @@
 添加文件
 ---
-把文件  **jsb_platformAPI.h** , **jsb_platformAPI.cpp** , **PlatformAPI.h** , **PlatfromAPI-android.cpp** , **PlatfromAPI-ios.mm** , **org_cocos2dx_javascript_MP3Encode.h** , **org_cocos2dx_javascript_MP3Encode.cpp** 放入项目 **frameworks\runtime-src\Classes** 目录下
+把文件  * **jsb_platformAPI.h** ,
+      * **jsb_platformAPI.cpp** , **PlatformAPI.h** , **PlatfromAPI-android.cpp** , **PlatfromAPI-ios.mm** , **org_cocos2dx_javascript_MP3Encode.h** , **org_cocos2dx_javascript_MP3Encode.cpp** 放入项目 **frameworks\runtime-src\Classes** 目录下
 
 引入 **jsb_utils_captureScreen.h** 头文件
 ---
