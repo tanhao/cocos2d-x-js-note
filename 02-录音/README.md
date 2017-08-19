@@ -11,6 +11,7 @@
 
 放入项目
 > **frameworks\runtime-src\Classes**
+
 目录下
 
 引入 **jsb_utils_captureScreen.h** 头文件
