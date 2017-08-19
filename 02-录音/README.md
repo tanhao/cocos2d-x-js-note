@@ -23,8 +23,9 @@
 打包Android时
 ---
 * 把 *libmp3lame* 整个文件夹放入 *frameworks\cocos2d-x\external* 目录里。
-* 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 中引用libmp3lame库。
+* 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 中引用 *libmp3lame* 库。
 
+      ...
       LOCAL_STATIC_LIBRARIES := cocos2d_js_static
       LOCAL_STATIC_LIBRARIES += libmp3_static
       
