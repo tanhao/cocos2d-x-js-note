@@ -28,7 +28,7 @@
 
 > **bool AppDelegate::applicationDidFinishLaunching()**
 
-方法里添加下面代码 ：
+方法里添加下面代码
 
       sc->addRegisterCallback(register_jsb_captureScreen);
 
@@ -40,7 +40,7 @@
 
 文件的
 
-**LOCAL_SRC_FILES** 部引入 **jsb_utils_captureScreen.cpp** :
+**LOCAL_SRC_FILES** 属性添加 **jsb_utils_captureScreen.cpp**
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                          ../../Classes/AppDelegate.cpp \
@@ -48,7 +48,11 @@
                          
 打包IOS时
 ---
-在项目中引入 **jsb_utils_captureScreen.h** 与 **jsb_utils_captureScreen.cpp** 即可
+在项目中引入
+* **jsb_utils_captureScreen.h**
+* **jsb_utils_captureScreen.cpp**
+
+即可
 
 js中如何调用
 ---
