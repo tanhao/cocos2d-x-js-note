@@ -47,6 +47,12 @@
 * **PlatfromAPI-android.cpp**
 * **org_cocos2dx_javascript_MP3Encode.cpp**
 
+* a
+* b
+* c
+
+
+
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                          ../../Classes/AppDelegate.cpp \
                          ../../Classes/jsb_platformAPI.cpp \
