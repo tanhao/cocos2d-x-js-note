@@ -13,7 +13,7 @@
 
 引入 **jsb_platformAPI.h** 头文件
 ---
-在项目 *frameworks\runtime-src\Classes\AppDelegate.cpp* 文件头部引入`#include "jsb_platformAPI.h"`
+在文件 *frameworks\runtime-src\Classes\AppDelegate.cpp* 头部引入`#include "jsb_platformAPI.h"`
 
 向jsb注册方法
 ---
@@ -30,8 +30,8 @@
                        ../../Classes/AppDelegate.cpp \ 
                        ../../Classes/jsb_platformAPI.cpp \ 
                        ../../Classes/PlatfromAPI-android.cpp \ 
-		       ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp
-
+		       ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
+                       
 打包IOS时
 ---
 在项目中引入 *jsb_utils_captureScreen.h* 与 *jsb_utils_captureScreen.cpp* 即可。
