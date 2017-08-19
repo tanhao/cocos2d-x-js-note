@@ -16,7 +16,11 @@
 
 引入 **jsb_utils_captureScreen.h** 头文件
 ---
-在项目 **frameworks\runtime-src\Classes\AppDelegate.cpp** 文件里头部引入 **jsb_platformAPI.h**
+在项目
+> **frameworks\runtime-src\Classes\AppDelegate.cpp**
+
+文件里头部引入
+* **jsb_platformAPI.h**
 
       #include "jsb_platformAPI.h"
 
