@@ -9,16 +9,11 @@
 * **org_cocos2dx_javascript_MP3Encode.h**
 * **org_cocos2dx_javascript_MP3Encode.cpp**
 
-放入项目`**frameworks\runtime-src\Classes**`目录里。
+放入项目`frameworks\runtime-src\Classes`目录里。
 
 引入 **jsb_platformAPI.h** 头文件
 ---
-在项目
-> **frameworks\runtime-src\Classes\AppDelegate.cpp**
-
-文件里头部引入 **jsb_platformAPI.h**
-
-      #include "jsb_platformAPI.h"
+在项目`frameworks\runtime-src\Classes\AppDelegate.cpp`文件头部引入`#include "jsb_platformAPI.h"`
 
 向jsb注册方法
 ---
