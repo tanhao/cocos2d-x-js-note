@@ -40,7 +40,8 @@
 
 文件的
 
-**LOCAL_SRC_FILES** 属性添加 **jsb_utils_captureScreen.cpp**
+**LOCAL_SRC_FILES** 属性添加
+* **jsb_utils_captureScreen.cpp**
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                          ../../Classes/AppDelegate.cpp \
