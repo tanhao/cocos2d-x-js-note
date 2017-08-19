@@ -8,7 +8,7 @@
 
 引入 **jsb_utils_captureScreen.h** 头文件
 ---
-在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 头部引入 `#include "jsb_utils_captureScreen.h"`
+在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 的头部引入 `#include "jsb_utils_captureScreen.h"`
 
 向jsb注册方法
 ---
@@ -18,7 +18,7 @@
 
 打包Android时
 ---
-在 *frameworks\runtime-src\proj.android\jni\Android.mk* 文件的 *LOCAL_SRC_FILES* 属性添加 *jsb_utils_captureScreen.cpp*
+在 *frameworks\runtime-src\proj.android\jni\Android.mk* 的 *LOCAL_SRC_FILES* 属性添加 *jsb_utils_captureScreen.cpp*
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                          ../../Classes/AppDelegate.cpp \
