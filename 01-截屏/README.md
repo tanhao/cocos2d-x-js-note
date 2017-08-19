@@ -52,11 +52,11 @@
 * **jsb_utils_captureScreen.h**
 * **jsb_utils_captureScreen.cpp**
 
-即可
+即可。
 
 js中如何调用
 ---
-      //第3个参数为截屏时保存图片的名称
+      //第3个参数为截屏时图片的名称
       jsb.captureScreen(function(success,file){
             //success为true时,截屏成功,file为图片路径
             cc.log(success,file);
