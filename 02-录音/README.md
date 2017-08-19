@@ -14,7 +14,7 @@
 
 目录下
 
-引入 **jsb_utils_captureScreen.h** 头文件
+引入 **jsb_platformAPI.h** 头文件
 ---
 在项目
 > **frameworks\runtime-src\Classes\AppDelegate.cpp**
