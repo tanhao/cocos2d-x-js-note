@@ -29,7 +29,7 @@
                        ../../Classes/AppDelegate.cpp \ 
                        ../../Classes/jsb_platformAPI.cpp \ 
                        ../../Classes/PlatfromAPI-android.cpp \ 
-		            ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
+		                ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
 				   
 
 打包IOS时
