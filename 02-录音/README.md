@@ -43,9 +43,9 @@
 > **frameworks\runtime-src\proj.android\jni\Android.mk**
 
 文件的 **LOCAL_SRC_FILES** 属性添加
-* *jsb_platformAPI.cpp*
-* *PlatfromAPI-android.cpp*
-* *org_cocos2dx_javascript_MP3Encode.cpp*
+* **jsb_platformAPI.cpp**
+* **PlatfromAPI-android.cpp**
+* **org_cocos2dx_javascript_MP3Encode.cpp**
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                          ../../Classes/AppDelegate.cpp \
