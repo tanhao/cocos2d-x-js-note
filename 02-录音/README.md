@@ -27,6 +27,17 @@
 *LOCAL_STATIC_LIBRARIES += libmp3_static*
 * 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 的 *$(call import-module, scripting/js-bindings/proj.android)* 下面添加  
 *$(call import-module, libmp3lame/prebuilt/android)*
+
+	LOCAL_STATIC_LIBRARIES := cocos2d_js_static
+	LOCAL_STATIC_LIBRARIES := cocos2d_js_static
+
+	LOCAL_EXPORT_CFLAGS := -DCOCOS2D_DEBUG=2 -DCOCOS2D_JAVASCRIPT
+
+	include $(BUILD_SHARED_LIBRARY)
+
+	$(call import-module, scripting/js-bindings/proj.android)
+	$(call import-module, libmp3lame/prebuilt/android)
+
 * 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 的 *LOCAL_SRC_FILES* 属性添加 *jsb_platformAPI.cpp*，*PlatfromAPI-android.cpp*，*org_cocos2dx_javascript_MP3Encode.cpp* 三个文件。 
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
