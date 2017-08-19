@@ -31,7 +31,7 @@
                          ../../Classes/jsb_platformAPI.cpp \
                          ../../Classes/PlatfromAPI-android.cpp \
                          ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
-                         
+      
 打包IOS时
 ---
 在项目中引入 *jsb_utils_captureScreen.h* 与 *jsb_utils_captureScreen.cpp* 即可。
