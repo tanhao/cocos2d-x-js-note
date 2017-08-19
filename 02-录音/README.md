@@ -25,7 +25,6 @@
 * 把 *libmp3lame* 整个文件夹放入 *frameworks\cocos2d-x\external* 目录里。
 * 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 中引用 *libmp3lame* 库。
 
-      ...
       LOCAL_STATIC_LIBRARIES := cocos2d_js_static
       LOCAL_STATIC_LIBRARIES += libmp3_static
       
@@ -44,6 +43,9 @@
                        ../../Classes/PlatfromAPI-android.cpp \ 
 		               ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
 				   
+* 的 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 加入录音权限  
+`<uses-permission android:name="android.permission.RECORD_AUDIO" />`
+
 
 打包IOS时
 ---
