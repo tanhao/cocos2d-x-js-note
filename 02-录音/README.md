@@ -39,14 +39,14 @@
 
 打包Android时
 ---
-1. 引入libmp3lame库
+###1. 引入libmp3lame库
 
 把**libmp3lame**整个文件夹放入
 > frameworks\cocos2d-x\external
 
 目录里。
 
-2. 在项目
+###2. 在项目
 
 > **frameworks\runtime-src\proj.android\jni\Android.mk**
 
