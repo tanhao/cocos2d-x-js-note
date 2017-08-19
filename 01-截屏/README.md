@@ -29,11 +29,7 @@
                          
 打包IOS时
 ---
-在项目中引入
-* **jsb_utils_captureScreen.h**
-* **jsb_utils_captureScreen.cpp**
-
-即可。
+在项目中引入 *jsb_utils_captureScreen.h* 与 *jsb_utils_captureScreen.cpp* 文件即可。
 
 js中如何调用
 ---
