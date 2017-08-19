@@ -9,10 +9,7 @@
 * **org_cocos2dx_javascript_MP3Encode.h**
 * **org_cocos2dx_javascript_MP3Encode.cpp**
 
-放入项目
-> **frameworks\runtime-src\Classes**
-
-目录里。
+放入项目`**frameworks\runtime-src\Classes**`目录里。
 
 引入 **jsb_platformAPI.h** 头文件
 ---
