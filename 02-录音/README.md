@@ -26,12 +26,12 @@
 2. 在项目 *frameworks\runtime-src\proj.android\jni\Android.mk* 文件的 *LOCAL_SRC_FILES* 属性添加
 *jsb_platformAPI.cpp*，*PlatfromAPI-android.cpp*，*org_cocos2dx_javascript_MP3Encode.cpp* 三个文件。
 
-      LOCAL_SRC_FILES := hellojavascript/main.cpp \
-                         ../../Classes/AppDelegate.cpp \
-                         ../../Classes/jsb_platformAPI.cpp \
-                         ../../Classes/PlatfromAPI-android.cpp \
-                         ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
-                         
+	LOCAL_SRC_FILES := hellojavascript/main.cpp \ 
+                       ../../Classes/AppDelegate.cpp \ 
+                       ../../Classes/jsb_platformAPI.cpp \ 
+                       ../../Classes/PlatfromAPI-android.cpp \ 
+					   ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp
+                 
 
 打包IOS时
 ---
