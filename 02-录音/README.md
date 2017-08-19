@@ -22,14 +22,9 @@
 
 打包Android时
 ---
-### 1. 引入libmp3lame库
-
-把**libmp3lame**整个文件夹放入 *frameworks\cocos2d-x\external*目录里。
-
-### 2. 在项目 *frameworks\runtime-src\proj.android\jni\Android.mk* 文件的 *LOCAL_SRC_FILES* 属性添加
-* **jsb_platformAPI.cpp**
-* **PlatfromAPI-android.cpp**
-* **org_cocos2dx_javascript_MP3Encode.cpp**
+1. 把**libmp3lame**整个文件夹放入 *frameworks\cocos2d-x\external*目录里。
+2. 在项目 *frameworks\runtime-src\proj.android\jni\Android.mk* 文件的 *LOCAL_SRC_FILES* 属性添加
+*jsb_platformAPI.cpp*，*PlatfromAPI-android.cpp*，*org_cocos2dx_javascript_MP3Encode.cpp*三个文件。
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                          ../../Classes/AppDelegate.cpp \
@@ -39,7 +34,7 @@
                          
 打包IOS时
 ---
-在项目中引入 **jsb_utils_captureScreen.h** 与 **jsb_utils_captureScreen.cpp** 即可
+在项目中引入 *jsb_utils_captureScreen.h* 与 *jsb_utils_captureScreen.cpp* 即可。
 
 js中如何调用
 ---
