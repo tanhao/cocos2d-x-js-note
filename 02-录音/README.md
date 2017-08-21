@@ -56,7 +56,7 @@
 
 打包IOS时
 ---
-* 把 *AudioRecorder.h* , *AudioRecorder.mm* , *libmp3lame\include\lame.h* ， *libmp3lame\prebuilt\ios\libmp3lame.a* 4个文件放入 *frameworks\runtime-src\proj.ios_mac\ios* 目录里。
+* 把 *AudioRecorder.h* , *AudioRecorder.mm* , *libmp3lame\include\lame.h* , *libmp3lame\prebuilt\ios\libmp3lame.a* 4个文件放入 *frameworks\runtime-src\proj.ios_mac\ios* 目录里。
 * 右击 *Classes* 目录引入 *jsb_platformAPI.h* , *jsb_platformAPI.cpp* , *PlatformAPI.h* , *PlatfromAPI-ios.mm* 四个文件。
 * 右击 *ios* 目录引入 *AudioRecorder.h* , *AudioRecorder.mm* , *lame.h*  三个文件。
 * 在 TARGETS > projectName-mobile > Link Binary With Libraries 引入 *libmp3lame\prebuilt\ios\libmp3lame.a* 库文件。
@@ -64,9 +64,15 @@
 
 js中如何调用
 ---
-      //第3个参数为截屏时保存图片的名称
-      jsb.captureScreen(function(success,file){
-            //success为true时,截屏成功,file为图片路径
-            cc.log(success,file);
-      },this,"test.jpg");
+      //开始录音
+      jsb.startAudioRecorder(function(audioFile,audioTime){
+            //audioFile录音文件路径,audioTime录音时间
+	    cc.log(audioFile,audioTime);
+      },this);
+      
+      //停止录音
+      jsb.stopAudioRecorder();
+      
+      //取消录音
+      jsb.cancelAudioRecorder();
       
