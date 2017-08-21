@@ -65,15 +65,14 @@
 js中如何调用
 ---
 
-      //开始录音
+      //开始录音
       jsb.startAudioRecorder(function(audioFile,audioTime){
             //audioFile录音文件路径,audioTime录音时间
 	    cc.log(audioFile,audioTime);
       },this);
-      
+
       //停止录音
       jsb.stopAudioRecorder();
-      
+
       //取消录音
       jsb.cancelAudioRecorder();
-      
