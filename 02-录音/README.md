@@ -43,9 +43,14 @@
                        ../../Classes/PlatfromAPI-android.cpp \ 
 		               ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
 				   
-* 把 *AudioRecorder.java* 与 *MP3Encode.java* 放入 *frameworks\runtime-src\proj.android\src\你项目的包名\* 目录里。
+* 把 *AudioRecorder.java* 与 *MP3Encode.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你项目的包名里。
 * 修改 *org_cocos2dx_javascript_MP3Encode.h* 与 *org_cocos2dx_javascript_MP3Encode.cpp* 里3个方法名字为你的项目包名(JNI语法)。
-* 的 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 加入录音权限  
+
+      如：Java_org_cocos2dx_helloword_MP3Encode_init
+          Java_包名(org_cocos2dx_helloword)_类名（MP3Encode）_方法名(init)
+	  //包名要与MP3Encode.java的包名一样,”.” 要替换成 "_" ,还是不懂，请百度JNI语法
+
+* 把 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 加入录音权限  
 `<uses-permission android:name="android.permission.RECORD_AUDIO" />`
 
 
