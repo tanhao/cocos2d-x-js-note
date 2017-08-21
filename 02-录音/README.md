@@ -64,6 +64,7 @@
 
 js中如何调用
 ---
+
       //开始录音
       jsb.startAudioRecorder(function(audioFile,audioTime){
             //audioFile录音文件路径,audioTime录音时间
