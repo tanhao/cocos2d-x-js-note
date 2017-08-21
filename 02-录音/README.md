@@ -46,8 +46,8 @@
 * 把 *AudioRecorder.java* 与 *MP3Encode.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你项目的包名里。
 * 修改 *org_cocos2dx_javascript_MP3Encode.h* 与 *org_cocos2dx_javascript_MP3Encode.cpp* 里3个方法名字为你的项目包名(JNI语法)。 
 
-      包名要与MP3Encode.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法
-      	  Java_org_cocos2dx_helloword_MP3Encode_init
+      包名要与MP3Encode.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法。
+      	  Java_org_cocos2dx_helloword_MP3Encode_init
       	  Java_包名(org_cocos2dx_helloword)_类名（MP3Encode）_方法名(init)
 
 * 把 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 加入录音权限  
@@ -56,7 +56,9 @@
 
 打包IOS时
 ---
-在项目中引入 *jsb_utils_captureScreen.h* 与 *jsb_utils_captureScreen.cpp* 即可。
+* 把 *AudioRecorder.h* , *AudioRecorder.mm* , *libmp3lame\include\lame.h* 与 *libmp3lame\prebuilt\ios\libmp3lame.a* 4个文件放入 *frameworks\runtime-src\proj.ios_mac\ios* 目录里。
+* 在项目中引入 *AudioRecorder.h* , *AudioRecorder.mm* , *libmp3lame\include\lame.h* , *jsb_platformAPI.h* , *jsb_platformAPI.cpp* , *PlatformAPI.h* , *PlatfromAPI-ios.mm* 七个文件。
+* 在 TARGETS > projectName-mobile > Link Binary With Libraries 引入 *libmp3lame\prebuilt\ios\libmp3lame.a* 库文件。
 
 js中如何调用
 ---
