@@ -47,8 +47,8 @@
 * 修改 *org_cocos2dx_javascript_MP3Encode.h* 与 *org_cocos2dx_javascript_MP3Encode.cpp* 里3个方法名字为你的项目包名(JNI语法)。 
 
       包名要与MP3Encode.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法
-      	 如：Java_org_cocos2dx_helloword_MP3Encode_init
-             	    Java_包名(org_cocos2dx_helloword)_类名（MP3Encode）_方法名(init)
+      	  Java_org_cocos2dx_helloword_MP3Encode_init
+      	  Java_包名(org_cocos2dx_helloword)_类名（MP3Encode）_方法名(init)
 
 * 把 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 加入录音权限  
 `<uses-permission android:name="android.permission.RECORD_AUDIO" />`
