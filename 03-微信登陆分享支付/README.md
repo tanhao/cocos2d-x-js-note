@@ -1,28 +1,26 @@
 添加文件
 ---
 把文件  
-* **jsb_platformAPI.h**
-* **jsb_platformAPI.cpp**
-* **PlatformAPI.h**
-* **PlatfromAPI-android.cpp**
-* **PlatfromAPI-ios.mm**
-* **org_cocos2dx_javascript_MP3Encode.h**
-* **org_cocos2dx_javascript_MP3Encode.cpp**
+* **jsb_utils_wechat.h**
+* **jsb_utils_wechat.cpp**
+* **Wechat.h**
+* **Wechat-android.cpp**
 
 放入项目 *frameworks\runtime-src\Classes* 目录里。
 
-引入 **jsb_platformAPI.h** 头文件
+引入 **jsb_utils_wechat.h** 头文件
 ---
-在文件 *frameworks\runtime-src\Classes\AppDelegate.cpp* 头部引入`#include "jsb_platformAPI.h"`
+在文件 *frameworks\runtime-src\Classes\AppDelegate.cpp* 头部引入`#include "jsb_utils_wechat.h"`
 
 向jsb注册方法
 ---
 在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 的 *bool AppDelegate::applicationDidFinishLaunching()* 方法里添加  
-`sc->addRegisterCallback(register_jsb_platfromAPI);`
+`sc->addRegisterCallback(register_jsb_wechat);`
 
 打包Android时
 ---
-* 把 *libmp3lame* 整个文件夹放入 *frameworks\cocos2d-x\external* 目录里。
+* 下载[微信SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip),把 *libs/libammsdk.jar* 放入 *frameworks\runtime-src\proj.android\libs* 目录里。
+* eclipse里右击项目 Build Path > Add External Archives 引入上步添加的 *libammsdk.jar* 。
 * 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 中引用 *libmp3lame* 库。
 
       LOCAL_STATIC_LIBRARIES := cocos2d_js_static
