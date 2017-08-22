@@ -23,7 +23,7 @@
 * eclipse里右键单击工程 选择Build Path中的Configure Build Path... , 选中Libraries这个tab，并通过Add Jars...导入 *frameworks\runtime-src\proj.android\libslibammsdk.jar* 文件。
 * 把 *Wechat.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名里。
 * 修改 *Wechat.java* 里的 APP_ID 为你的应用从官方网站上就申请到的合法appId
-* 的 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加必要的权限支持 
+* 在 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加必要的权限支持 
 
       <uses-permission android:name="android.permission.INTERNET"/>
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -40,6 +40,7 @@
       }
 
 * 接收微信的请求及返回值，必须在你的包名相应目录下新建一个wxapi目录，并在该wxapi目录下新增一个WXEntryActivity类，该类继承自Activity（微信强制要求的），把 *WXEntryActivity.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名下面的 *wxapi* 目录里。
+* 如有不明白的地方请参考微信官方文档[Android接入指南](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=1417751808&token=&lang=zh_CN)，[Android微信登陆开发指南](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419317851&token=&lang=zh_CN),[Android微信分享与收藏功能开发文档](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419317340&token=&lang=zh_CN)
 
 打包IOS时
 ---
