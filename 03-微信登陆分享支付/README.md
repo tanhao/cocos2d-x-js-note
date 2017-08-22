@@ -51,11 +51,11 @@
 
 *  在 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加WXEntryActivity 
 
-      <activity  android:name="org.cocos2dx.helloword.wxapi.WXEntryActivity"
+      `<activity  android:name="org.cocos2dx.helloword.wxapi.WXEntryActivity"
               android:exported="true"  
               android:label="@string/app_name"
               android:theme="@android:style/Theme.NoTitleBar.Fullscreen">  
-      </activity> 
+      </activity>`
 
 * 打包成功后,把生成的apk应用安装到android手机中，然后下载[签名生成工具](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/Gen_Signature_Android2.apk)签名，然后把生成的签名回填到[微信开放平台](https://open.weixin.qq.com/) > 管理中心 >  选中你的APP查看 > 开发信息 > 修改 > Android 应用 > 应用签名一栏，并且修改应用包名一栏为你工程包名。
 
