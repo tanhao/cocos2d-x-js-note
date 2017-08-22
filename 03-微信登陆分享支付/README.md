@@ -28,8 +28,8 @@
       //public static native void onLoginEvent(boolean success,String token);
       包名要与Wechat.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法。  
 
-      Java_org_cocos2dx_helloword_Wechat_onLoginEvent
-      Java_包名(org_cocos2dx_helloword修改成你工程的包名)_类名(Wechat)_方法名(onLoginEvent)
+      Java_org_cocos2dx_helloword_Wechat_onLoginEvent  
+      Java_包名(org_cocos2dx_helloword修改成你工程的包名)_类名(Wechat)_方法名(onLoginEvent)
 
 * 在 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加必要的权限支持 
 
