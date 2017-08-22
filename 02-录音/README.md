@@ -43,7 +43,7 @@
                        ../../Classes/PlatfromAPI-android.cpp \ 
 		               ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
 				   
-* 把 *AudioRecorder.java* 与 *MP3Encode.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你工程的包名里。
+* 把 *AudioRecorder.java* 与 *MP3Encode.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名里。
 * 修改 *org_cocos2dx_javascript_MP3Encode.h* 与 *org_cocos2dx_javascript_MP3Encode.cpp* 里3个方法名字为你的工程包名(JNI语法)。 
 
       包名要与MP3Encode.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法。
