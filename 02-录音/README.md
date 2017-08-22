@@ -54,8 +54,8 @@
 
       //private static native void onAudioRecordEvent(String path, double audioTime);
       包名要与AudioRecorder.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法。
-      Java_org_cocos2dx_helloword_AudioRecorder_onAudioRecordEvent
-      Java_包名(org_cocos2dx_helloword)_类名（AudioRecorder）_方法名(onAudioRecordEvent)
+      	Java_org_cocos2dx_helloword_AudioRecorder_onAudioRecordEvent
+      	Java_包名(org_cocos2dx_helloword)_类名（AudioRecorder）_方法名(onAudioRecordEvent)
 
 * 把 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 加入录音权限  
 `<uses-permission android:name="android.permission.RECORD_AUDIO" />`
