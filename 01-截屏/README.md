@@ -4,7 +4,7 @@
 * **jsb_utils_captureScreen.h**
 * **jsb_utils_captureScreen.cpp**
 
-放入项目 *frameworks\runtime-src\Classes* 目录里。
+放入工程 *frameworks\runtime-src\Classes* 目录里。
 
 引入 **jsb_utils_captureScreen.h** 头文件
 ---
@@ -26,7 +26,7 @@
                          
 打包IOS时
 ---
-* 在项目中引入 *jsb_utils_captureScreen.h* 与 *jsb_utils_captureScreen.cpp* 文件即可。
+* 在工程中引入 *jsb_utils_captureScreen.h* 与 *jsb_utils_captureScreen.cpp* 文件即可。
 
 js中如何调用
 ---
