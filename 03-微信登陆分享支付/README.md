@@ -22,19 +22,21 @@
 * 下载[微信SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip)把 *libs/libammsdk.jar* 放入 *frameworks\runtime-src\proj.android\libs* 目录里。
 * eclipse里右键单击工程 选择Build Path中的Configure Build Path... , 选中Libraries这个tab，并通过Add Jars...导入 *frameworks\runtime-src\proj.android\libslibammsdk.jar* 文件。
 * 把 *Wechat.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你项目的包名里。
-* 把 *Wechat.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你项目的包名里。
+* 把 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加必要的权限支持 
 
-* 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 中引用 *libmp3lame* 库。
+      <uses-permission android:name="android.permission.INTERNET"/>
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+      <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-      LOCAL_STATIC_LIBRARIES := cocos2d_js_static
-      LOCAL_STATIC_LIBRARIES += libmp3_static
-      
-      LOCAL_EXPORT_CFLAGS := -DCOCOS2D_DEBUG=2 -DCOCOS2D_JAVASCRIPT
+* 要使你的程序启动后微信终端能响应你的程序，必须在代码中向微信终端注册你的id（可以在程序入口Activity的onCreate回调函数处，或其他合适的地方将你的应用id注册到微信），在工程里的 *AppActivity.java* 文件里如下代码：。
 
-      include $(BUILD_SHARED_LIBRARY)
-
-      $(call import-module, scripting/js-bindings/proj.android)
-      $(call import-module, libmp3lame/prebuilt/android)
+      @Override
+      protected void onCreate(Bundle savedInstanceState) {
+      		super.onCreate(savedInstanceState);
+      		Wechat.regToWX(this);
+      }
 
 * 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 的 *LOCAL_SRC_FILES* 属性添加 *jsb_platformAPI.cpp*，*PlatfromAPI-android.cpp*，*org_cocos2dx_javascript_MP3Encode.cpp* 三个文件。 
 
