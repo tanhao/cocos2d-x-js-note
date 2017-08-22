@@ -77,7 +77,6 @@ bool Wechat::login(const EventCustomCallback& cb)
 extern "C"
 {   
 
-    //分享回调函数
 	JNIEXPORT void JNICALL Java_org_cocos2dx_helloword_Wechat_onLoginEvent(
                                                                              JNIEnv*  env, 
                                                                              jclass thiz, 

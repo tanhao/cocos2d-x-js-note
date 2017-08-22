@@ -26,6 +26,7 @@ import android.graphics.Bitmap.CompressFormat;
 
 public class Wechat {
 	
+	// APP_ID 替换为你的应用从官方网站上就申请到的合法appId
 	public static final String APP_ID="wx34900d33eaed55b3";
 	//微信API接口
 	public static IWXAPI iwxapi;

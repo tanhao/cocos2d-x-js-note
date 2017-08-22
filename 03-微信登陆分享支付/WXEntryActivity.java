@@ -56,6 +56,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 			case BaseResp.ErrCode.ERR_OK:
 				SendAuth.Resp tmpResp=(SendAuth.Resp) resp;
 				if(tmpResp.state.equals(Wechat.State.Login)){
+					//接收微信的请求及返回值 ,如果就登陆state,就回调到 Wechat-android.cpp的onLoginEvent方法，再回调到JS
 					Wechat.onLoginEvent(true, tmpResp.code);
 				}
 				result = R.string.errcode_success;
