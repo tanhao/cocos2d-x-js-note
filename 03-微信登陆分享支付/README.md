@@ -21,8 +21,9 @@
 ---
 * 下载[微信SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip)把 *libs/libammsdk.jar* 放入 *frameworks\runtime-src\proj.android\libs* 目录里。
 * eclipse里右键单击工程 选择Build Path中的Configure Build Path... , 选中Libraries这个tab，并通过Add Jars...导入 *frameworks\runtime-src\proj.android\libslibammsdk.jar* 文件。
-* 把 *Wechat.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你项目的包名里。
-* 把 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加必要的权限支持 
+* 把 *Wechat.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名里。
+* 修改 *Wechat.java* 里的 APP_ID 为你的应用从官方网站上就申请到的合法appId
+* 的 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加必要的权限支持 
 
       <uses-permission android:name="android.permission.INTERNET"/>
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -38,24 +39,7 @@
       		Wechat.regToWX(this);
       }
 
-* 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 的 *LOCAL_SRC_FILES* 属性添加 *jsb_platformAPI.cpp*，*PlatfromAPI-android.cpp*，*org_cocos2dx_javascript_MP3Encode.cpp* 三个文件。 
-
-      LOCAL_SRC_FILES := hellojavascript/main.cpp \
-                       ../../Classes/AppDelegate.cpp \ 
-                       ../../Classes/jsb_platformAPI.cpp \ 
-                       ../../Classes/PlatfromAPI-android.cpp \ 
-		               ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
-				   
-* 把 *AudioRecorder.java* 与 *MP3Encode.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你项目的包名里。
-* 修改 *org_cocos2dx_javascript_MP3Encode.h* 与 *org_cocos2dx_javascript_MP3Encode.cpp* 里3个方法名字为你的项目包名(JNI语法)。 
-
-      包名要与MP3Encode.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法。
-      	  Java_org_cocos2dx_helloword_MP3Encode_init
-      	  Java_包名(org_cocos2dx_helloword)_类名（MP3Encode）_方法名(init)
-
-* 把 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 加入录音权限  
-`<uses-permission android:name="android.permission.RECORD_AUDIO" />`
-
+* 接收微信的请求及返回值，必须在你的包名相应目录下新建一个wxapi目录，并在该wxapi目录下新增一个WXEntryActivity类，该类继承自Activity（微信强制要求的），把 *WXEntryActivity.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名下面的 *wxapi* 目录里。
 
 打包IOS时
 ---
