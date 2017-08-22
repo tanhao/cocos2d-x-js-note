@@ -9,7 +9,7 @@
 * **org_cocos2dx_javascript_MP3Encode.h**
 * **org_cocos2dx_javascript_MP3Encode.cpp**
 
-放入项目 *frameworks\runtime-src\Classes* 目录里。
+放入工程 *frameworks\runtime-src\Classes* 目录里。
 
 引入 **jsb_platformAPI.h** 头文件
 ---
@@ -43,8 +43,8 @@
                        ../../Classes/PlatfromAPI-android.cpp \ 
 		               ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
 				   
-* 把 *AudioRecorder.java* 与 *MP3Encode.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你项目的包名里。
-* 修改 *org_cocos2dx_javascript_MP3Encode.h* 与 *org_cocos2dx_javascript_MP3Encode.cpp* 里3个方法名字为你的项目包名(JNI语法)。 
+* 把 *AudioRecorder.java* 与 *MP3Encode.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你工程的包名里。
+* 修改 *org_cocos2dx_javascript_MP3Encode.h* 与 *org_cocos2dx_javascript_MP3Encode.cpp* 里3个方法名字为你的工程包名(JNI语法)。 
 
       包名要与MP3Encode.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法。
       	  Java_org_cocos2dx_helloword_MP3Encode_init
@@ -57,8 +57,8 @@
 打包IOS时
 ---
 * 把 *AudioRecorder.h* , *AudioRecorder.mm* , *libmp3lame\include\lame.h* , *libmp3lame\prebuilt\ios\libmp3lame.a* 4个文件放入 *frameworks\runtime-src\proj.ios_mac\ios* 目录里。
-* 右击 *Classes* 目录引入 *jsb_platformAPI.h* , *jsb_platformAPI.cpp* , *PlatformAPI.h* , *PlatfromAPI-ios.mm* 四个文件。
-* 右击 *ios* 目录引入 *AudioRecorder.h* , *AudioRecorder.mm* , *lame.h*  三个文件。
+* 右键单击 *Classes* 目录引入 *jsb_platformAPI.h* , *jsb_platformAPI.cpp* , *PlatformAPI.h* , *PlatfromAPI-ios.mm* 四个文件。
+* 右键单击 *ios* 目录引入 *AudioRecorder.h* , *AudioRecorder.mm* , *lame.h*  三个文件。
 * 在 TARGETS > projectName-mobile >  Build Phases > Link Binary With Libraries 引入 *libmp3lame\prebuilt\ios\libmp3lame.a* 库文件。
 * info.plist 添加一行 Key= *Privacy - Microphone Usage Description* , Type= *String* , Key= *是否同意使用麦克风?*
 
