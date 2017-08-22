@@ -19,8 +19,11 @@
 
 打包Android时
 ---
-* 下载[微信SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip),把 *libs/libammsdk.jar* 放入 *frameworks\runtime-src\proj.android\libs* 目录里。
-* eclipse里右击项目 Build Path > Add External Archives 引入上步添加的 *libammsdk.jar* 。
+* 下载[微信SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip)把 *libs/libammsdk.jar* 放入 *frameworks\runtime-src\proj.android\libs* 目录里。
+* eclipse里右键单击工程 选择Build Path中的Configure Build Path... , 选中Libraries这个tab，并通过Add Jars...导入 *frameworks\runtime-src\proj.android\libslibammsdk.jar* 文件。
+* 把 *Wechat.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你项目的包名里。
+* 把 *Wechat.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你项目的包名里。
+
 * 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 中引用 *libmp3lame* 库。
 
       LOCAL_STATIC_LIBRARIES := cocos2d_js_static
