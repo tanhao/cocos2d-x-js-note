@@ -39,7 +39,7 @@
       <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
       <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-* 要使你的程序启动后微信终端能响应你的程序，必须在代码中向微信终端注册你的id（可以在程序入口Activity的onCreate回调函数处，或其他合适的地方将你的应用id注册到微信），在工程里的 *AppActivity.java* 文件里如下代码：
+* 要使你的程序启动后微信终端能响应你的程序，必须在代码中向微信终端注册你的id（可以在程序入口Activity的onCreate回调函数处，或其他合适的地方将你的应用id注册到微信），在工程里的 *AppActivity.java* 文件里添加如下代码：
 
       @Override
       protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +49,13 @@
 
 * 接收微信的请求及返回值，必须在你的包名相应目录下新建一个wxapi目录，并在该wxapi目录下新增一个WXEntryActivity类，该类继承自Activity（微信强制要求的），把 *WXEntryActivity.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名下面的 *wxapi* 目录里。
 
-*  在 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加 *WXEntryActivity*
+*  在 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加 *WXEntryActivity* 代码如下：
 
-            <activity  android:name="org.cocos2dx.helloword.wxapi.WXEntryActivity"
-                  android:exported="true"  
-                  android:label="@string/app_name"
-                  android:theme="@android:style/Theme.NoTitleBar.Fullscreen">  
-            </activity>
+       <activity  android:name="org.cocos2dx.helloword.wxapi.WXEntryActivity"
+            android:exported="true"  
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">  
+       </activity>
 
 * 打包成功后,把生成的apk应用安装到android手机中，然后下载[签名生成工具](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/Gen_Signature_Android2.apk)签名，然后把生成的签名回填到[微信开放平台](https://open.weixin.qq.com/) > 管理中心 >  选中你的APP查看 > 开发信息 > 修改 > Android 应用 > 应用签名一栏，并且修改应用包名一栏为你工程包名。
 
