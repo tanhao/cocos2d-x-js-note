@@ -23,11 +23,13 @@
 * eclipse里右键单击工程 选择Build Path中的Configure Build Path... , 选中Libraries这个tab，并通过Add Jars...导入 *frameworks\runtime-src\proj.android\libslibammsdk.jar* 文件。
 * 把 *Wechat.java* （调微信API封装类）放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名里。
 * 修改 *Wechat.java* 里的 APP_ID 为你的应用从官方网站上就申请到的合法appId
-* 修改 *Wechat-android.cpp* 里java回调函数为你的工程包名(JNI语法,Java通过Jni调用C++代码)。 
+* 修改 *Wechat-android.cpp* 里java回调函数为你的工程包名(JNI语法,Java通过Jni调用C++代码)。
 
-      包名要与MP3Encode.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法。
-      Java_org_cocos2dx_helloword_MP3Encode_init
-      Java_包名(org_cocos2dx_helloword)_类名（MP3Encode）_方法名(init)
+      //public static native void onLoginEvent(boolean success,String token);
+      包名要与Wechat.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法。  
+
+      Java_org_cocos2dx_helloword_Wechat_onLoginEvent
+      Java_包名(org_cocos2dx_helloword修改成你工程的包名)_类名(Wechat)_方法名(onLoginEvent)
 
 * 在 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加必要的权限支持 
 
