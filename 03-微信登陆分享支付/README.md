@@ -43,8 +43,8 @@
 
       @Override
       protected void onCreate(Bundle savedInstanceState) {
-      		super.onCreate(savedInstanceState);
-      		Wechat.regToWX(this);
+      	super.onCreate(savedInstanceState);
+      	Wechat.regToWX(this);
       }
 
 * 接收微信的请求及返回值，必须在你的包名相应目录下新建一个wxapi目录，并在该wxapi目录下新增一个WXEntryActivity类，该类继承自Activity（微信强制要求的），把 *WXEntryActivity.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名下面的 *wxapi* 目录里。
@@ -52,9 +52,9 @@
 *  在 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加 *WXEntryActivity* 代码如下：
 
        <activity  android:name="org.cocos2dx.helloword.wxapi.WXEntryActivity"
-          android:exported="true"  
-          android:label="@string/app_name"
-          android:theme="@android:style/Theme.NoTitleBar.Fullscreen">  
+            android:exported="true"  
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">  
        </activity>
 
 * 打包成功后,把生成的apk应用安装到android手机中，然后下载[签名生成工具](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/Gen_Signature_Android2.apk)签名，然后把生成的签名回填到[微信开放平台](https://open.weixin.qq.com/) > 管理中心 >  选中你的APP查看 > 开发信息 > 修改 > Android 应用 > 应用签名一栏，并且修改应用包名一栏为你工程包名。
@@ -74,8 +74,8 @@ js中如何调用
 
       //开始录音
       jsb.startAudioRecorder(function(audioFile,audioTime){
-      	    //audioFile录音文件路径,audioTime录音时间
-      	    cc.log(audioFile,audioTime);
+            //audioFile录音文件路径,audioTime录音时间
+      	cc.log(audioFile,audioTime);
       },this);
 
       //停止录音
