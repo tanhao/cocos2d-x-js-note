@@ -52,9 +52,7 @@
       	Java_org_cocos2dx_helloword_MP3Encode_destroy
       	Java_包名(org_cocos2dx_helloword修改成你工程的包名)_类名(MP3Encode)_方法名(destroy)
       	Java_org_cocos2dx_helloword_MP3Encode_encode
-      	Java_包名(org_cocos2dx_helloword修改成你工程的包名)_类名(MP3Encode)_方法名(encode)
-	
-	
+      	Java_包名(org_cocos2dx_helloword修改成你工程的包名)_类名(MP3Encode)_方法名(encode)
 
 * 修改 *PlatfromAPI-android.cpp* 里的java回调函数 *onAudioRecordEvent* 为你的工程包名(JNI语法,Java通过Jni调用C++代码)。
 
