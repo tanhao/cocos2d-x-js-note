@@ -1,16 +1,16 @@
 添加文件
 ---
 把文件  
-* **jsb_utils_wechat.h**
-* **jsb_utils_wechat.cpp**
-* **Wechat.h**
-* **Wechat-android.cpp**
+* **jsb_utils_wechatAPI.h**
+* **jsb_utils_wechatAPI.cpp**
+* **WechatAPI.h**
+* **WechatAPI-android.cpp**
 
 放入项目 *frameworks\runtime-src\Classes* 目录里。
 
-引入 **jsb_utils_wechat.h** 头文件
+引入 **jsb_utils_wechatAPI.h** 头文件
 ---
-在文件 *frameworks\runtime-src\Classes\AppDelegate.cpp* 头部引入`#include "jsb_utils_wechat.h"`
+在文件 *frameworks\runtime-src\Classes\AppDelegate.cpp* 头部引入`#include "jsb_utils_wechatAPI.h"`
 
 向jsb注册方法
 ---
@@ -23,7 +23,7 @@
 * eclipse里右键单击工程 选择Build Path中的Configure Build Path... , 选中Libraries这个tab，并通过Add Jars...导入 *frameworks\runtime-src\proj.android\libslibammsdk.jar* 文件。
 * 把 *Wechat.java* （调微信API封装类）放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名里。
 * 修改 *Wechat.java* 里的 APP_ID 为你的应用从官方网站上就申请到的合法appId
-* 修改 *Wechat-android.cpp* 里java回调函数为你的工程包名(JNI语法,Java通过Jni调用C++代码)。
+* 修改 *WechatAPI-android.cpp* 里java回调函数为你的工程包名(JNI语法,Java通过Jni调用C++代码)。
 
       //public static native void onLoginEvent(boolean success,String token);
       包名要与Wechat.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法。  
