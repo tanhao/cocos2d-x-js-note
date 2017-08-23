@@ -99,7 +99,7 @@ bool jsb_utils_login(JSContext *cx, uint32_t argc, jsval *vp){
 	return true;
 }
 
-void register_jsb_wechat(JSContext *_cx, JS::HandleObject global)
+void register_jsb_wechatAPI(JSContext *_cx, JS::HandleObject global)
 {
 	JS::RootedObject ns(_cx);
 	get_or_create_js_obj(_cx, global, "jsb", &ns);

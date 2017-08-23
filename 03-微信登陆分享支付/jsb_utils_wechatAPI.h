@@ -21,6 +21,6 @@ extern "C" {
 #endif
 
 
-    void register_jsb_wechat(JSContext *globalC, JS::HandleObject globalO);
+    void register_jsb_wechatAPI(JSContext *globalC, JS::HandleObject globalO);
 
 #endif // __sqlite_h__
