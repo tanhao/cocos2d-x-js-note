@@ -20,7 +20,7 @@ const char kJavaWechatClass[] = "org/cocos2dx/helloword/Wechat";
 //============================================================================
 // 分享网页
 //============================================================================
-bool Wechat::shareWebpage(const std::string& urlStr,const std::string& title,const std::string& description,const bool& isTimelineCb)
+bool WechatAPI::shareWebpage(const std::string& urlStr,const std::string& title,const std::string& description,const bool& isTimelineCb)
 {
 
     //cocos2d::log("Wechat-android==>>urlStr: %s      title: %s      description: %s      isTimelineCb: %s", urlStr.c_str(),title.c_str(),description.c_str(),(isTimelineCb?"yes":"no"));
@@ -40,7 +40,7 @@ bool Wechat::shareWebpage(const std::string& urlStr,const std::string& title,con
 //============================================================================
 // 分享图片
 //============================================================================
-bool Wechat::shareImage(const std::string& imagePath,const bool& isTimelineCb)
+bool WechatAPI::shareImage(const std::string& imagePath,const bool& isTimelineCb)
 {
 
     //cocos2d::log("Wechat-android==>>imagePath: %s       isTimelineCb: %s", imagePath.c_str(),(isTimelineCb?"yes":"no"));
@@ -58,7 +58,7 @@ bool Wechat::shareImage(const std::string& imagePath,const bool& isTimelineCb)
 //============================================================================
 // 登陆
 //============================================================================
-bool Wechat::login(const EventCustomCallback& cb)
+bool WechatAPI::login(const EventCustomCallback& cb)
 {
 
     //添回微信登陆成功后回调监听

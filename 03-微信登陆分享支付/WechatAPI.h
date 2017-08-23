@@ -13,7 +13,7 @@ struct tagWechatLoginEvent {
     std::string token;
 };
 
-class Wechat
+class WechatAPI
 {
 public:
     //============================================================================

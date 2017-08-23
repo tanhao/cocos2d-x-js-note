@@ -28,7 +28,7 @@ bool jsb_utils_shareWebpage(JSContext *cx, uint32_t argc, jsval *vp){
 	bool isTimelineCb = JS::ToBoolean(args.get(3));
 
 	//cocos2d::log("jsb_utils_wechat==>>urlStr: %s      title: %s      description: %s      isTimelineCb: %s", urlStr.c_str(),title.c_str(),description.c_str(),(isTimelineCb?"yes":"no"));
-	bool ret_val = Wechat::shareWebpage(urlStr,title,description,isTimelineCb);
+	bool ret_val = WechatAPI::shareWebpage(urlStr,title,description,isTimelineCb);
 	//JS调用 var isSuccess=jsb.wechatShareWebpage(urlStr,title,description,false);
 	//这个返回值就是isSuccess接收到的值
 	args.rval().setBoolean(ret_val);
@@ -53,7 +53,7 @@ bool jsb_utils_shareImage(JSContext *cx, uint32_t argc, jsval *vp){
 
 	
 	//cocos2d::log("jsb_utils_wechat==>>imagePath: %s       isTimelineCb: %s",imagePath.c_str(),(isTimelineCb?"yes":"no"));
-	bool ret_val = Wechat::shareImage(imagePath,isTimelineCb);
+	bool ret_val = WechatAPI::shareImage(imagePath,isTimelineCb);
 	//JS调用 var isSuccess=jsb.wechatShareImage(imagePath,false);
 	//这个返回值就是isSuccess接收到的值
 	args.rval().setBoolean(ret_val);
@@ -91,7 +91,7 @@ bool jsb_utils_login(JSContext *cx, uint32_t argc, jsval *vp){
 	};
 	callback = lambda;
 
-	bool ret_val = Wechat::login(callback);
+	bool ret_val = WechatAPI::login(callback);
 	//JS调用 var isSuccess=jsb.wechatLogin(function(success){}，this);
 	//这个返回值就是isSuccess接收到的值
 	args.rval().setBoolean(ret_val);
