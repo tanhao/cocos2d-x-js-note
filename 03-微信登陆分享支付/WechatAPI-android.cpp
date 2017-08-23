@@ -20,7 +20,7 @@ const char kJavaWechatClass[] = "org/cocos2dx/helloword/Wechat";
 //============================================================================
 // 分享网页
 //============================================================================
-bool WechatAPI::shareWebpage(const std::string& urlStr,const std::string& title,const std::string& description,const bool& isTimelineCb)
+bool WechatAPI::shareWebpage(std::string urlStr,std::string title,std::string description,bool isTimelineCb)
 {
 
     //cocos2d::log("Wechat-android==>>urlStr: %s      title: %s      description: %s      isTimelineCb: %s", urlStr.c_str(),title.c_str(),description.c_str(),(isTimelineCb?"yes":"no"));
@@ -40,7 +40,7 @@ bool WechatAPI::shareWebpage(const std::string& urlStr,const std::string& title,
 //============================================================================
 // 分享图片
 //============================================================================
-bool WechatAPI::shareImage(const std::string& imagePath,const bool& isTimelineCb)
+bool WechatAPI::shareImage(std::string imagePath,bool isTimelineCb)
 {
 
     //cocos2d::log("Wechat-android==>>imagePath: %s       isTimelineCb: %s", imagePath.c_str(),(isTimelineCb?"yes":"no"));

@@ -19,12 +19,12 @@ public:
     //============================================================================
     // 分享网页
     //============================================================================
-    static bool shareWebpage(const std::string& urlStr,const std::string& title,const std::string& description,const bool& isTimelineCb);
+    static bool shareWebpage(std::string urlStr,std::string title,std::string description,bool isTimelineCb);
     
     //============================================================================
     // 分享图片
     //============================================================================
-    static bool shareImage(const std::string& imagePath,const bool& isTimelineCb);
+    static bool shareImage(std::string imagePath,bool isTimelineCb);
 
     //============================================================================
     // 登陆
