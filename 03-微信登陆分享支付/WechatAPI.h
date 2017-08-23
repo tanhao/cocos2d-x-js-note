@@ -1,5 +1,5 @@
-#ifndef __WECHAT_H__
-#define __WECHAT_H__
+#ifndef __WECHAT_API_H__
+#define __WECHAT_API_H__
 
 #include "cocos2d.h"
 

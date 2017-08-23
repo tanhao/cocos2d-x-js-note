@@ -1,8 +1,8 @@
-#include "Wechat.h"
+#include "WechatAPI.h"
 
 
 #ifdef ANDROID
-#define  LOG_TAG    "Wechat-android.cpp"
+#define  LOG_TAG    "WechatAPI-android.cpp"
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #else
 #define  LOGD(...) js_log(__VA_ARGS__)

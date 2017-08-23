@@ -1,7 +1,7 @@
-#include "jsb_utils_wechat.h"
+#include "jsb_utils_wechatAPI.h"
 #include "scripting/js-bindings/manual/cocos2d_specifics.hpp"
 #include "cocos2d.h"
-#include "Wechat.h"
+#include "WechatAPI.h"
 
 //分享网页
 bool jsb_utils_shareWebpage(JSContext *cx, uint32_t argc, jsval *vp){

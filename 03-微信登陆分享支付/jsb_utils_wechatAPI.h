@@ -1,6 +1,6 @@
 #include "base/ccConfig.h"
-#ifndef __utils_wechat_h__
-#define __utils_wechat_h__
+#ifndef __utils_wechat_api_h__
+#define __utils_wechat_api_h__
 
 #include "jsapi.h"
 #include "jsfriendapi.h"
