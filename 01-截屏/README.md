@@ -16,7 +16,7 @@
 
       bool AppDelegate::applicationDidFinishLaunching()
       {
-            ScriptingCore* sc = ScriptingCore::getInstance();
+            ScriptingCore* sc = ScriptingCore::getInstance();
             sc->addRegisterCallback(register_jsb_captureScreen);
       }
 
