@@ -14,8 +14,7 @@
 
 向jsb注册方法
 ---
-在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 的 *bool AppDelegate::applicationDidFinishLaunching()* 方法里添加  
-`sc->addRegisterCallback(register_jsb_wechatAPI);`
+在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 的 *bool AppDelegate::applicationDidFinishLaunching()* 方法里的 `ScriptingCore* sc = ScriptingCore::getInstance();` 下面添加  `sc->addRegisterCallback(register_jsb_wechatAPI);`
 
 打包Android时
 ---
