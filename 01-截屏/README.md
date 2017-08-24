@@ -17,7 +17,7 @@
 
 打包Android时
 ---
-* 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 的 *LOCAL_SRC_FILES* 属性添加 *jsb_utils_captureScreen.cpp* 文件
+* 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 的 *LOCAL_SRC_FILES* 属性添加 *jsb_utils_captureScreen.cpp* 文件：
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                          ../../Classes/AppDelegate.cpp \
