@@ -12,12 +12,8 @@
 
 向jsb注册方法
 ---
-在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 的 *bool AppDelegate::applicationDidFinishLaunching()* 方法里添加
+在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 的 *bool AppDelegate::applicationDidFinishLaunching()* 方法里的 *ScriptingCore* sc = ScriptingCore::getInstance();* 添加 `sc->addRegisterCallback(register_jsb_captureScreen);`
 
-      ScriptingCore* sc = ScriptingCore::getInstance();
-      ...
-      sc->addRegisterCallback(register_jsb_captureScreen);
-      ...
 
 打包Android时
 ---
