@@ -69,12 +69,12 @@
 * 右键单击 Classes 目录，选择Add Files to "工程名" 导入 jsb_utils_wechatAPI.h , jsb_utils_wechatAPI.cpp , WechatAPI.h , WechatAPI-ios.mm 四个文件。
 * 要使你的程序启动后微信终端能响应你的程序，必须在代码中向微信终端注册你的id。在 *frameworks\runtime-src\proj.ios_mac\ios\AppController.mm* 的 *didFinishLaunchingWithOptions* 函数中向微信注册id）：
 
-      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-      {
-          //向微信注册
-          [WXApi registerApp:@"wx34900d33eaed55b3" enableMTA:NO];
-          return YES;
-      }
+       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+       {
+           //向微信注册
+           [WXApi registerApp:@"wx34900d33eaed55b3" enableMTA:NO];
+           return YES;
+       }
 
 *  重写 *frameworks\runtime-src\proj.ios_mac\ios\AppController.mm* 的 *handleOpenURL* 和 *openURL方法：
 
