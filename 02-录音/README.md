@@ -1,23 +1,23 @@
 添加文件
 ---
 把文件  
-* **jsb_platformAPI.h**
-* **jsb_platformAPI.cpp**
-* **PlatformAPI.h**
-* **PlatfromAPI-android.cpp**
-* **PlatfromAPI-ios.mm**
+* **jsb_utils_audioRecorderAPI.h**
+* **jsb_utils_audioRecorderAPI.cpp**
+* **AudioRecorderAPI.h**
+* **AudioRecorderAPI-android.cpp**
+* **AudioRecorderAPI-ios.mm**
 * **org_cocos2dx_javascript_MP3Encode.h**
 * **org_cocos2dx_javascript_MP3Encode.cpp**
 
 放入工程 *frameworks\runtime-src\Classes* 目录里。
 
-引入 **jsb_platformAPI.h** 头文件
+引入 **jsb_utils_audioRecorderAPI.h** 头文件
 ---
-在文件 *frameworks\runtime-src\Classes\AppDelegate.cpp* 头部引入`#include "jsb_platformAPI.h"`
+在文件 *frameworks\runtime-src\Classes\AppDelegate.cpp* 头部引入`#include "jsb_utils_audioRecorderAPI.h"`
 
 向jsb注册方法
 ---
-在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 的 *bool AppDelegate::applicationDidFinishLaunching()* 方法里的 `ScriptingCore* sc = ScriptingCore::getInstance();` 下面添加 `sc->addRegisterCallback(register_jsb_platfromAPI);`
+在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 的 *bool AppDelegate::applicationDidFinishLaunching()* 方法里的 `ScriptingCore* sc = ScriptingCore::getInstance();` 下面添加 `sc->addRegisterCallback(register_jsb_audioRecorderAPI);`
 
 打包Android时
 ---
@@ -34,12 +34,12 @@
       $(call import-module, scripting/js-bindings/proj.android)
       $(call import-module, libmp3lame/prebuilt/android)
 
-* 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 的 *LOCAL_SRC_FILES* 属性添加 *jsb_platformAPI.cpp*，*PlatfromAPI-android.cpp*，*org_cocos2dx_javascript_MP3Encode.cpp* 三个文件。 
+* 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 的 *LOCAL_SRC_FILES* 属性添加 *jsb_utils_audioRecorderAPI.cpp*，*AudioRecorderAPI-android.cpp*，*org_cocos2dx_javascript_MP3Encode.cpp* 三个文件。 
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                        ../../Classes/AppDelegate.cpp \ 
-                       ../../Classes/jsb_platformAPI.cpp \ 
-                       ../../Classes/PlatfromAPI-android.cpp \ 
+                       ../../Classes/jsb_utils_audioRecorderAPI.cpp \ 
+                       ../../Classes/AudioRecorderAPI-android.cpp \ 
 		               ../../Classes/org_cocos2dx_javascript_MP3Encode.cpp 
 				   
 * 把 *AudioRecorder.java* 与 *MP3Encode.java* 放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名里。
@@ -72,7 +72,7 @@
 打包IOS时
 ---
 * 把 *AudioRecorder.h* , *AudioRecorder.mm* , *libmp3lame\include\lame.h* , *libmp3lame\prebuilt\ios\libmp3lame.a* 四个文件放入 *frameworks\runtime-src\proj.ios_mac\ios* 目录里。
-* 右键单击 *Classes* 目录，选择Add Files to "工程名" 导入 *jsb_platformAPI.h* , *jsb_platformAPI.cpp* , *PlatformAPI.h* , *PlatfromAPI-ios.mm* 四个文件。
+* 右键单击 *Classes* 目录，选择Add Files to "工程名" 导入 *jsb_utils_audioRecorderAPI.h* , *jsb_utils_audioRecorderAPI.cpp* , *AudioRecorderAPI.h* , *AudioRecorderAPI-ios.mm* 四个文件。
 * 右键单击 *ios* 目录，选择Add Files to "工程名" 导入 *AudioRecorder.h* , *AudioRecorder.mm* , *lame.h* , *libmp3lame.a* 四个文件。
 * ~~右键单击 *ios* 目录，选择Add Files to "工程名" 导入 *AudioRecorder.h* , *AudioRecorder.mm* , *lame.h* 三个文件。~~
 * ~~在 TARGETS > projectName-mobile >  Build Phases > Link Binary With Libraries 导入 *libmp3lame\prebuilt\ios\libmp3lame.a* 库文件。~~
