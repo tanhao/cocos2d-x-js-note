@@ -78,12 +78,12 @@
 
 *  重写 *frameworks\runtime-src\proj.ios_mac\ios\AppController.mm* 的 *handleOpenURL* 和 *openURL方法：
 
-      -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-          return[WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
-      }
-      -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-          return [WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
-      }
+            -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+                return[WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
+            }
+            -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+                return [WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
+            }
 
 js中如何调用
 ---
