@@ -71,11 +71,18 @@
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
-          // Override point for customization after application launch.
-          ...
-          [WXApi registerApp:@"wx34900d33eaed55b3" enableMTA:NO];
-          ...
+          //向微信注册
+          [WXApi registerApp:@"wx34900d33eaed55b3" enableMTA:NO];
           return YES;
+      }
+
+*  重写 *frameworks\runtime-src\proj.ios_mac\ios\AppController.mm* 的 *handleOpenURL* 和 *openURL方法：
+
+      -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+          return[WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
+      }
+      -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+          return [WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
       }
 
 js中如何调用
