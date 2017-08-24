@@ -4,6 +4,7 @@
 * **jsb_utils_wechatAPI.h**
 * **jsb_utils_wechatAPI.cpp**
 * **WechatAPI.h**
+* **WechatAPI-ios.h**
 * **WechatAPI-android.cpp**
 
 放入项目 *frameworks\runtime-src\Classes* 目录里。
@@ -18,7 +19,7 @@
 
 打包Android时
 ---
-* 下载[微信SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip)把 *libs/libammsdk.jar* 放入 *frameworks\runtime-src\proj.android\libs* 目录里。
+* 到[Android资源下载](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&token=&lang=zh_CN)中心下载[微信安卓SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip)把 *libs/libammsdk.jar* 放入 *frameworks\runtime-src\proj.android\libs* 目录里。
 * eclipse里右键单击工程 选择Build Path中的Configure Build Path... , 选中Libraries这个tab，并通过Add Jars...导入 *frameworks\runtime-src\proj.android\libslibammsdk.jar* 文件。
 * 把 *Wechat.java* （调微信API封装类）放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名里。
 * 修改 *Wechat.java* 里的 APP_ID 为你的应用从官方网站上就申请到的合法appId
@@ -63,11 +64,19 @@
 
 打包IOS时
 ---
-* 把 *AudioRecorder.h* , *AudioRecorder.mm* , *libmp3lame\include\lame.h* , *libmp3lame\prebuilt\ios\libmp3lame.a* 4个文件放入 *frameworks\runtime-src\proj.ios_mac\ios* 目录里。
-* 右击 *Classes* 目录引入 *jsb_platformAPI.h* , *jsb_platformAPI.cpp* , *PlatformAPI.h* , *PlatfromAPI-ios.mm* 四个文件。
-* 右击 *ios* 目录引入 *AudioRecorder.h* , *AudioRecorder.mm* , *lame.h*  三个文件。
-* 在 TARGETS > projectName-mobile >  Build Phases > Link Binary With Libraries 引入 *libmp3lame\prebuilt\ios\libmp3lame.a* 库文件。
-* info.plist 添加一行 Key= *Privacy - Microphone Usage Description* , Type= *String* , Key= *是否同意使用麦克风?*
+* 到[iOS资源下载](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319164&token=&lang=zh_CN)中心下载[微信苹果SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip)，然后解压把整个文件夹放入 *frameworks\runtime-src\proj.ios_mac\ios* 目录里。
+* 右键单击 ios 目录，选择Add Files to "工程名" 导入 *WXApi.h* , *WXApiObject.h* , *WechatAuthSDK.h* , *libWeChatSDK.a* 四个文件。
+* 右键单击 Classes 目录，选择Add Files to "工程名" 导入 jsb_utils_wechatAPI.h , jsb_utils_wechatAPI.cpp , WechatAPI.h , WechatAPI-ios.mm 四个文件。
+* 要使你的程序启动后微信终端能响应你的程序，必须在代码中向微信终端注册你的id。在 *frameworks\runtime-src\proj.ios_mac\ios\AppController.mm* 的 *didFinishLaunchingWithOptions* 函数中向微信注册id）。
+
+      - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+      {
+          // Override point for customization after application launch.
+          ...
+          [WXApi registerApp:@"wx34900d33eaed55b3" enableMTA:NO];
+          ...
+          return YES;
+      }
 
 js中如何调用
 ---
