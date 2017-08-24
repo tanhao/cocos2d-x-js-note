@@ -28,7 +28,7 @@
 * 到[Android资源下载](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&token=&lang=zh_CN)中心下载[微信安卓SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip)把 *libs/libammsdk.jar* 放入 *frameworks\runtime-src\proj.android\libs* 目录里。
 * eclipse里右键单击工程 选择Build Path中的Configure Build Path... , 选中Libraries这个tab，并通过Add Jars...导入 *frameworks\runtime-src\proj.android\libslibammsdk.jar* 文件。
 * 把 *Wechat.java* （调微信API封装类）放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名里。
-* 修改 *Wechat.java* 里的 APP_ID 为你的应用从官方网站上就申请到的合法appId
+* 修改 *Wechat.java* 里的 APP_ID 为你从官方网站上就申请到的合法appId
 * 修改 *WechatAPI-android.cpp* 里java回调函数 *onLoginEvent* 包名为你的工程包名(JNI语法,Java通过Jni调用C++代码)：
 
       //public static native void onLoginEvent(boolean success,String token);
@@ -77,8 +77,8 @@
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
-            //向微信注册
-            [WXApi registerApp:@"wx34900d33eaed55b3" enableMTA:NO];
+            //向微信注册,注意修改registerApp参数为你从官方网站上就申请到的合法appId
+            [WXApi registerApp:@"wx34900d33eaed55b3" enableMTA:NO];
             return YES;
       }
 
@@ -93,6 +93,8 @@
             return [WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
        }
 
+* 在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“Info”标签栏的“URL type“点击添加，“URL scheme”为你所注册的应用程序id，“identifier”输入“weixin"
+* *info.plist* 添加一行 Key= *LSApplicationQueriesSchemes* , Type= *Array* , 再在 *LSApplicationQueriesSchemes* 下面添加一项 Type=*String* , Value=*weixin* 。
 js中如何调用
 ---
 
