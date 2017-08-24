@@ -72,10 +72,10 @@
 打包IOS时
 ---
 * 把 *AudioRecorder.h* , *AudioRecorder.mm* , *libmp3lame\include\lame.h* , *libmp3lame\prebuilt\ios\libmp3lame.a* 四个文件放入 *frameworks\runtime-src\proj.ios_mac\ios* 目录里。
-* 右键单击 *Classes* 目录，选择Add Files to "工程名" 导入 *jsb_utils_audioRecorderAPI.h* , *jsb_utils_audioRecorderAPI.cpp* , *AudioRecorderAPI.h* , *AudioRecorderAPI-ios.mm* 四个文件。
 * 右键单击 *ios* 目录，选择Add Files to "工程名" 导入 *AudioRecorder.h* , *AudioRecorder.mm* , *lame.h* , *libmp3lame.a* 四个文件。
 * ~~右键单击 *ios* 目录，选择Add Files to "工程名" 导入 *AudioRecorder.h* , *AudioRecorder.mm* , *lame.h* 三个文件。~~
 * ~~在 TARGETS > projectName-mobile >  Build Phases > Link Binary With Libraries 导入 *libmp3lame\prebuilt\ios\libmp3lame.a* 库文件。~~
+* 右键单击 *Classes* 目录，选择Add Files to "工程名" 导入 *jsb_utils_audioRecorderAPI.h* , *jsb_utils_audioRecorderAPI.cpp* , *AudioRecorderAPI.h* , *AudioRecorderAPI-ios.mm* 四个文件。
 * info.plist 添加一行 Key= *Privacy - Microphone Usage Description* , Type= *String* , Key= *是否同意使用麦克风?*
 
 js中如何调用
