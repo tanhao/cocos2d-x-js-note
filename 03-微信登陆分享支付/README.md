@@ -100,16 +100,16 @@
 js中如何调用
 ---
 
-      //分享网页
-      //参数 1：要分享的网址，2：标题，3：说明，4：是否分享到朋友圈
-      var isSuccess=jsb.wechatShareWebpage("this is url","this is title","this is  description",false);
+      //分享网页
+      //参数 1：要分享的网址，2：标题，3：说明，4：是否分享到朋友圈
+      var isSuccess=jsb.wechatShareWebpage("this is url","this is title","this is  description",false);
 
-      //分享图片
-      //参数 1：图片路径，2：是否分享到朋友圈
-      var isSuccess=jsb.wechatShareImage("this is image path",false);
+      //分享图片
+      //参数 1：图片路径，2：是否分享到朋友圈
+      var isSuccess=jsb.wechatShareImage("this is image path",false);
 
-      //微信登陆
-       jsb.wechatLogin(function (success,token) {
-            //success是否成功，token为微信返回的access_token
-            cc.log("Login:",success,token);
-       },this);
+      //微信登陆
+      jsb.wechatLogin(function (success,token) {
+            //success是否成功，token为微信返回的access_token
+            cc.log("Login:",success,token);
+      },this);
