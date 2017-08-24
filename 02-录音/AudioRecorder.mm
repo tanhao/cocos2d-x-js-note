@@ -7,33 +7,15 @@
 //
 #import <UIKit/UIKit.h>
 #import "AudioRecorder.h"
-#import "PlatformAPI.h"
+#import "AudioRecorderAPI.h"
 #import "lame.h"
 
-static AVAudioRecorder *_audioRecorder;
-static NSString *_audioFilePath;
-static NSTimer* _timer;
-static AVAudioSession *_audioSession;
-
 @implementation AudioRecorder
-//开始录音
-+(BOOL) startRecorder
-{
-    double time1=CACurrentMediaTime();
-    //如果还在录音中先关闭
-    if (_audioRecorder&&[_audioRecorder isRecording]) {
-        [_audioRecorder stop];
-    }
-    double time2=CACurrentMediaTime();
-    NSLog(@"如果还在录音中先关闭:%lf",time2-time1);
-    //如果录音文件存在就删除
-    if(_audioFilePath){
-        [self deleteFileAtPath:_audioFilePath];
-    }
-    double time3=CACurrentMediaTime();
-    NSLog(@"如果录音文件存在就删除:%lf",time3-time2);
-    //录音没有初始化就初始化
-    if(!_audioRecorder){
+
+-(id)init{
+    if(self=[super init]){
+        //初始化录音配置
+        
         //存放路径
         _audioFilePath=[[NSString alloc] initWithFormat:@"%@/%@.caf", [self getRecordPathUrl],[self getTimestamp]];
         NSURL *url = [NSURL fileURLWithPath:_audioFilePath];
@@ -41,19 +23,35 @@ static AVAudioSession *_audioSession;
         //录音配置
         NSDictionary *settings=[self getAudioSetting];
         _audioRecorder = [[AVAudioRecorder alloc]initWithURL:url settings:settings error:NULL];
-        
     }
-    double time4=CACurrentMediaTime();
-    NSLog(@"录音配置:%lf",time4-time3);
-    if(!_audioSession){
-        _audioSession=[AVAudioSession sharedInstance];
+    return self;
+}
+//返回AudioRecorder实例，单例模式
++(instancetype)sharedInstance {
+    static dispatch_once_t onceToken;
+    static AudioRecorder *instance;
+    dispatch_once(&onceToken, ^{
+        instance = [[AudioRecorder alloc] init];
+    });
+    return instance;
+}
+
+
+//开始录音
+-(BOOL) startRecorder
+{
+    //如果还在录音中先关闭
+    if (_audioRecorder&&[_audioRecorder isRecording]) {
+        [_audioRecorder stop];
+    }
+    //如果录音文件存在就删除
+    if(_audioFilePath){
+        [self deleteFileAtPath:_audioFilePath];
     }
     //设置类别,表示该应用同时支持播放和录音
-    [_audioSession setCategory:AVAudioSessionCategoryRecord error:nil];
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryRecord error:nil];
     //启动音频会话管理,此时会阻断后台音乐的播放.
-    [_audioSession setActive:YES error:nil];
-    double time5=CACurrentMediaTime();
-    NSLog(@"AVAudioSession设置时间:%lf",time5-time4);
+    [[AVAudioSession sharedInstance] setActive:YES error:nil];
     //创建录音文件，准备录音
     [_audioRecorder prepareToRecord];
     //是否启用录音测量，如果启用录音测量可以获得录音分贝等数据信息
@@ -63,15 +61,11 @@ static AVAudioSession *_audioSession;
     
     //设置定时检测
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(detectionVoice) userInfo:nil repeats:YES];
-    
-    double time6=CACurrentMediaTime();
-    NSLog(@"开始录音:%lf",time6-time5);
-    NSLog(@"开始录音总时间:%lf",time6-time1);
-    
+
     return YES;
 }
 //音量检测
-+ (void)detectionVoice
+- (void)detectionVoice
 {
     [_audioRecorder updateMeters];//刷新音量数据
     //获取音量的平均值  [recorder averagePowerForChannel:0];
@@ -80,10 +74,8 @@ static AVAudioSession *_audioSession;
     NSLog(@"录音实时音量：%lf  %lf",volume,[_audioRecorder peakPowerForChannel:0]);
 }
 //停止录音
-+(BOOL) stopRecorder
+-(BOOL) stopRecorder
 {
-    
-    double time1=CACurrentMediaTime();
     
     [_timer invalidate];
     //取录音时间
@@ -91,20 +83,14 @@ static AVAudioSession *_audioSession;
     //录音停止
     [_audioRecorder stop];
     //一定要在录音停止以后再关闭音频会话管理（否则会报错），此时会延续后台音乐播放
-    [_audioSession setActive:NO error:nil];
+    [[AVAudioSession sharedInstance] setActive:NO error:nil];
     //此处需要恢复设置回放标志，否则会导致其它播放声音也会变小
-    [_audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-    double time2=CACurrentMediaTime();
-    NSLog(@"AVAudioSession设置用时：%lf",time2-time1);
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     NSString *audioFileName=[_audioFilePath substringToIndex:[_audioFilePath rangeOfString:@"/"].location];
     NSLog(@"FileName:%@",audioFileName);
-    NSLog(@"===>>caf:%@  wq :%@  time:%f",_audioFilePath,[self fileSizeAtPath:_audioFilePath],audioTime);
-    
     //压缩转成MP3
     NSString *mp3Path=[self audioCAFtoMP3:_audioFilePath];
     NSLog(@"===>>mp3:%@  size:%@",mp3Path,[self fileSizeAtPath:mp3Path]);
-    double time3=CACurrentMediaTime();
-    NSLog(@"压缩用时:%lf",time3-time2);
     /*
      [[AVAudioSession sharedInstance]  setActive:YES error:nil];
      AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL fileURLWithPath:mp3Path] error:nil];
@@ -112,12 +98,11 @@ static AVAudioSession *_audioSession;
      audioPlayer.volume = 1;
      [audioPlayer play];
      */
-    PlatformAPI::onAudioRecordEvent([mp3Path UTF8String],audioTime);
-    NSLog(@"停止录音总时间:%lf",time3-time1);
+    AudioRecorderAPI::onAudioRecordEvent([mp3Path UTF8String],audioTime);
     return YES;
 }
 //取消录音
-+(BOOL) cancelRecorder{
+-(BOOL) cancelRecorder{
     [_timer invalidate];
     //录音停止
     [_audioRecorder stop];
@@ -130,7 +115,7 @@ static AVAudioSession *_audioSession;
     return YES;
 }
 //取得录音文件设置
-+(NSDictionary *)getAudioSetting{
+-(NSDictionary *)getAudioSetting{
     //LinearPCM 是iOS的一种无损编码格式,但是体积较为庞大
     //录音设置
     NSMutableDictionary *recordSetting = [[NSMutableDictionary alloc] init];
@@ -148,7 +133,7 @@ static AVAudioSession *_audioSession;
     return recordSetting;
 }
 //根据路径取文件大小
-+(NSString *) fileSizeAtPath:(NSString*)filePath{
+-(NSString *) fileSizeAtPath:(NSString*)filePath{
     NSString *sizeText=nil;
     NSFileManager* manager =[NSFileManager defaultManager];
     if ([manager fileExistsAtPath:filePath]){
@@ -167,7 +152,7 @@ static AVAudioSession *_audioSession;
     return sizeText;
 }
 //根据路删除文件
-+(void)deleteFileAtPath:(NSString*)filePath{
+-(void)deleteFileAtPath:(NSString*)filePath{
     NSFileManager* fileManager=[NSFileManager defaultManager];
     //判断录音后本地是否生成录音文件
     BOOL blHave=  [[NSFileManager defaultManager] fileExistsAtPath:filePath];
@@ -178,13 +163,13 @@ static AVAudioSession *_audioSession;
     }
 }
 //获取转换文件所在文件夹
-+(NSString *)getRecordPathUrl{
+-(NSString *)getRecordPathUrl{
     NSString *str = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     //NSString *recordDir=[str stringByAppendingPathComponent:@"RecordCourse"];
     return str;
 }
 //获取时间戳用于文件的命名
-+(NSString *)getTimestamp{
+-(NSString *)getTimestamp{
     NSDate *nowDate=[NSDate date];
     double timestamp=(double)[nowDate timeIntervalSince1970]*1000;
     long nowTimestamp=[[NSNumber numberWithDouble:timestamp] longValue];
@@ -192,7 +177,7 @@ static AVAudioSession *_audioSession;
     return timestampStr;
 }
 //CAF转换MP3的lame方法
-+ (NSString *)audioCAFtoMP3:(NSString *)wavPath {
+- (NSString *)audioCAFtoMP3:(NSString *)wavPath {
     
     NSString *cafFilePath = wavPath;
     

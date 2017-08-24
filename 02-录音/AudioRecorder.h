@@ -10,9 +10,18 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface AudioRecorder : NSObject
+{
 
-+(BOOL) startRecorder; //开始录音
-+(BOOL) stopRecorder;  //结束录音
-+(BOOL) cancelRecorder;//取消录音
+   AVAudioRecorder *_audioRecorder;
+   NSString *_audioFilePath;
+   NSTimer *_timer;
+   AVAudioSession *_audioSession;
+    
+}
+
++ (instancetype)sharedInstance;
+-(BOOL) startRecorder; //开始录音
+-(BOOL) stopRecorder;  //结束录音
+-(BOOL) cancelRecorder;//取消录音
 
 @end
