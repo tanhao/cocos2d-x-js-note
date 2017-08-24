@@ -23,7 +23,7 @@
 * eclipse里右键单击工程 选择Build Path中的Configure Build Path... , 选中Libraries这个tab，并通过Add Jars...导入 *frameworks\runtime-src\proj.android\libslibammsdk.jar* 文件。
 * 把 *Wechat.java* （调微信API封装类）放入 *frameworks\runtime-src\proj.android\src* 目录下你工程相应的包名里。
 * 修改 *Wechat.java* 里的 APP_ID 为你的应用从官方网站上就申请到的合法appId
-* 修改 *WechatAPI-android.cpp* 里java回调函数 *onLoginEvent* 包名为你的工程包名(JNI语法,Java通过Jni调用C++代码)。
+* 修改 *WechatAPI-android.cpp* 里java回调函数 *onLoginEvent* 包名为你的工程包名(JNI语法,Java通过Jni调用C++代码)：
 
       //public static native void onLoginEvent(boolean success,String token);
       包名要与Wechat.java的包名一样, ”.” 要替换成 "_"  , 还是不懂，请百度JNI语法。  
@@ -31,7 +31,7 @@
       Java_org_cocos2dx_helloword_Wechat_onLoginEvent  
       Java_包名(org_cocos2dx_helloword修改成你工程的包名)_类名(Wechat)_方法名(onLoginEvent)
 
-* 在 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加必要的权限支持 
+* 在 *frameworks\runtime-src\proj.android\AndroidManifest.xml* 添加必要的权限支持：
 
       <uses-permission android:name="android.permission.INTERNET"/>
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -67,7 +67,7 @@
 * 到[iOS资源下载](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319164&token=&lang=zh_CN)中心下载[微信苹果SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip)，然后解压把整个文件夹放入 *frameworks\runtime-src\proj.ios_mac\ios* 目录里。
 * 右键单击 ios 目录，选择Add Files to "工程名" 导入 *WXApi.h* , *WXApiObject.h* , *WechatAuthSDK.h* , *libWeChatSDK.a* 四个文件。
 * 右键单击 Classes 目录，选择Add Files to "工程名" 导入 jsb_utils_wechatAPI.h , jsb_utils_wechatAPI.cpp , WechatAPI.h , WechatAPI-ios.mm 四个文件。
-* 要使你的程序启动后微信终端能响应你的程序，必须在代码中向微信终端注册你的id。在 *frameworks\runtime-src\proj.ios_mac\ios\AppController.mm* 的 *didFinishLaunchingWithOptions* 函数中向微信注册id）。
+* 要使你的程序启动后微信终端能响应你的程序，必须在代码中向微信终端注册你的id。在 *frameworks\runtime-src\proj.ios_mac\ios\AppController.mm* 的 *didFinishLaunchingWithOptions* 函数中向微信注册id）：
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
@@ -78,12 +78,13 @@
 
 *  重写 *frameworks\runtime-src\proj.ios_mac\ios\AppController.mm* 的 *handleOpenURL* 和 *openURL方法：
 
-            -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
-                return[WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
-            }
-            -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
-                return [WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
-            }
+       -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
+            return[WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
+       }
+
+       -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+            return [WXApi handleOpenURL:url delegate:[Wechat sharedInstance]];
+       }
 
 js中如何调用
 ---
