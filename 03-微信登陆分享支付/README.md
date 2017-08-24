@@ -77,8 +77,8 @@
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
       {
-            //向微信注册,注意修改registerApp参数为你从官方网站上就申请到的合法appId
-            [WXApi registerApp:@"wx34900d33eaed55b3" enableMTA:NO];
+            //向微信注册,注意修改registerApp参数为你从官方网站上就申请到的合法appId
+            [WXApi registerApp:@"wx34900d33eaed55b3" enableMTA:NO];
             return YES;
       }
 
