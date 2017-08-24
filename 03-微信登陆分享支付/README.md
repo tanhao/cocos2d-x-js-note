@@ -95,6 +95,7 @@
 
 * 在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“Info”标签栏的“URL type“点击添加，“URL scheme”为你所注册的应用程序id，“identifier”输入“weixin"
 * *info.plist* 添加一行 Key= *LSApplicationQueriesSchemes* , Type= *Array* , 再在 *LSApplicationQueriesSchemes* 下面添加一项 Type=*String* , Value=*weixin* 。  
+* 如有不明白的地方请参考微信官方文档[iOS接入指南](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=1417694084&token=&lang=zh_CN)，[iOS微信登陆开发指南](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419317851&token=&lang=zh_CN)，[iOS微信分享与收藏功能开发文档](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419317332&token=&lang=zh_CN)
 
 js中如何调用
 ---
