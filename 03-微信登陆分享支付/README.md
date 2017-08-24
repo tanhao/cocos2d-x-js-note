@@ -15,7 +15,13 @@
 
 向jsb注册方法
 ---
-在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 的 *bool AppDelegate::applicationDidFinishLaunching()* 方法里的 `ScriptingCore* sc = ScriptingCore::getInstance();` 下面添加  `sc->addRegisterCallback(register_jsb_wechatAPI);`
+在 *frameworks\runtime-src\Classes\AppDelegate.cpp* 的 *bool AppDelegate::applicationDidFinishLaunching()* 方法里向JSB注册：
+
+      bool AppDelegate::applicationDidFinishLaunching()
+      {
+            ScriptingCore* sc = ScriptingCore::getInstance();
+            sc->addRegisterCallback(register_jsb_captureScreen);
+      }
 
 打包Android时
 ---
@@ -76,6 +82,7 @@
             return YES;
       }
 
+*  在 *frameworks\runtime-src\proj.ios_mac\ios\AppController.mm* 头部导入 *#import "Wechat.h"* 。
 *  重写 *frameworks\runtime-src\proj.ios_mac\ios\AppController.mm* 的 *handleOpenURL* 和 *openURL方法：
 
        -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
