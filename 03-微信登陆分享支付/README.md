@@ -94,18 +94,21 @@
        }
 
 * 在Xcode中，选择你的工程设置项，选中“TARGETS”一栏，在“Info”标签栏的“URL type“点击添加，“URL scheme”为你所注册的应用程序id，“identifier”输入“weixin"
-* *info.plist* 添加一行 Key= *LSApplicationQueriesSchemes* , Type= *Array* , 再在 *LSApplicationQueriesSchemes* 下面添加一项 Type=*String* , Value=*weixin* 。
+* *info.plist* 添加一行 Key= *LSApplicationQueriesSchemes* , Type= *Array* , 再在 *LSApplicationQueriesSchemes* 下面添加一项 Type=*String* , Value=*weixin* 。  
+
 js中如何调用
 ---
 
-      //开始录音
-      jsb.startAudioRecorder(function(audioFile,audioTime){
-            //audioFile录音文件路径,audioTime录音时间
-      	cc.log(audioFile,audioTime);
-      },this);
+      //分享网页
+      //参数 1：要分享的网址，2：标题，3：说明，4：是否分享到朋友圈
+      var isSuccess=jsb.wechatShareWebpage("this is url","this is title","this is  description",false);
 
-      //停止录音
-      jsb.stopAudioRecorder();
+      //分享图片
+      //参数 1：图片路径，2：是否分享到朋友圈
+      var isSuccess=jsb.wechatShareImage("this is image path",false);
 
-      //取消录音
-      jsb.cancelAudioRecorder();
+      //微信登陆
+       jsb.wechatLogin(function (success,token) {
+            //success是否成功，token为微信返回的access_token
+            cc.log("Login:",success,token);
+       },this);
