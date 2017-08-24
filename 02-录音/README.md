@@ -4,8 +4,8 @@
 * **jsb_utils_audioRecorderAPI.h**
 * **jsb_utils_audioRecorderAPI.cpp**
 * **AudioRecorderAPI.h**
-* **AudioRecorderAPI-android.cpp**
 * **AudioRecorderAPI-ios.mm**
+* **AudioRecorderAPI-android.cpp**
 * **org_cocos2dx_javascript_MP3Encode.h**
 * **org_cocos2dx_javascript_MP3Encode.cpp**
 
