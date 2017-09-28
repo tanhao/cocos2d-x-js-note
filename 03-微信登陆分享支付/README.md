@@ -24,6 +24,7 @@
       }
 
 打包Android时
+---
 * 在 *frameworks\runtime-src\proj.android\jni\Android.mk* 的 *LOCAL_SRC_FILES* 属性添加 *jsb_utils_wechatAPI.cpp*，*WechatAPI-android.cpp* 二个文件：
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
