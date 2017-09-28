@@ -29,8 +29,8 @@
 
       LOCAL_SRC_FILES := hellojavascript/main.cpp \
                        ../../Classes/AppDelegate.cpp \ 
-                       ../../Classes/WechatAPI-android.cpp \ 
-		               ../../Classes/jsb_utils_wechatAPI.cpp 
+                       ../../Classes/jsb_utils_wechatAPI.cpp \ 
+		               ../../Classes/WechatAPI-android.cpp 
 				   
 * 到[Android资源下载](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419319167&token=&lang=zh_CN)中心下载[微信安卓SDK](https://res.wx.qq.com/open/zh_CN/htmledition/res/dev/download/sdk/WeChatSDK_Android221cbf.zip)把 *libs/libammsdk.jar* 放入 *frameworks\runtime-src\proj.android\libs* 目录里。
 * eclipse里右键单击工程 选择Build Path中的Configure Build Path... , 选中Libraries这个tab，并通过Add Jars...导入 *frameworks\runtime-src\proj.android\libslibammsdk.jar* 文件。
