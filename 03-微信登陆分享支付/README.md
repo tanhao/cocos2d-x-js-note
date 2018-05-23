@@ -20,7 +20,7 @@
       bool AppDelegate::applicationDidFinishLaunching()
       {
             ScriptingCore* sc = ScriptingCore::getInstance();
-            sc->addRegisterCallback(register_jsb_captureScreen);
+            sc->addRegisterCallback(register_jsb_wechatAPI);
       }
 
 打包Android时
